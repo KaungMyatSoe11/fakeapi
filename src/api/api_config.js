@@ -1,0 +1,1 @@
+export const api_url="https://fakerapi.it/api/v1/books?_quantity=10"
