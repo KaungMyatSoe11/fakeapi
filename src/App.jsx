@@ -1,21 +1,21 @@
-import { useEffect, useState } from "react";
-import BookTable from "./components/BookTable";
-import { GetBooksData } from "./api/book";
+import React, { useContext } from "react";
+import Card from "./components/Card/";
+import BookProvider, { BookContext } from "./context/BookProvider";
 
-function App() {
-  const [books, setBooks] = useState([]);
-
-  const BooksData = async () => {
-    setBooks(await GetBooksData());
-  };
-
-  useEffect(() => {
-    BooksData();
-  }, []);
-
+const App = () => {
+  const {books} = useContext(BookContext)
+  console.log(books);
   return (
-    <>{books.length == 0 ? <h2>Loading...</h2> : <BookTable books={books} />}</>
+      <div>
+        {books.length === 0 ? (
+          <h2 className="mt-[20%] ml-[40%] font-medium  text-5xl text-stone-700">
+            Loading. . .
+          </h2>
+        ) : (
+          <Card books={books} />
+        )}
+      </div>
   );
-}
+};
 
 export default App;
