@@ -11,7 +11,7 @@ const CartProvider = ({ children }) => {
     cart.map((c_item) => {
       if (c_item.id == item.id) isExist = true;
     });
-    if (!isExist) setCart([...cart, item]);
+    if (!isExist) {setCart([...cart, item])};
   };
   return (
     <CartContext.Provider value={{ cart, addCart }}>
