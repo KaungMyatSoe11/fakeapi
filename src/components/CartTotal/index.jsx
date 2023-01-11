@@ -11,15 +11,19 @@ const CartTotal = () => {
     intiValue
   );
   return (
-    <>
-      <div className="flex items-center">
-        <span>
-          <h5 className="font-semibold">Subtotal: </h5>
-        </span>
-        <h1 className="text-3xl font-bold">${cartPrices}</h1>
-      </div>
-      <button>Checkout</button>
-    </>
+    <div>
+      {cartPrices > 0 && (
+        <>
+          <div className="flex items-center">
+            <span>
+              <h5 className="font-semibold">Subtotal: </h5>
+            </span>
+            <h1 className="text-3xl font-bold">${cartPrices}</h1>
+          </div>
+          <button>Checkout</button>
+        </>
+      )}
+    </div>
   );
 };
 

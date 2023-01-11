@@ -4,7 +4,7 @@ import BookContext from "../../context/BookProvider";
 
 const Card = ({books}) => {
   return (
-    <div className="flex flex-row flex-wrap justify-center gap-10 mt-10 mb-10 p-10">
+    <div className="flex flex-row flex-wrap justify-center gap-10 ">
       {books.map((book) => (
         <CardItem key={book.id} book={book} />
       ))}
