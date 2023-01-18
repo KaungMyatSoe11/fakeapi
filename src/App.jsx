@@ -8,7 +8,7 @@ const App = () => {
       <BrowserRouter>
         {/* <Link to={"/cart"}>Cart</Link> */}
         <Header/>
-        <div className="container mx-auto px-10 py-[100px]">
+        <div className="container mx-auto py-[100px]">
           <Router />
         </div>
       </BrowserRouter>

@@ -11,10 +11,18 @@ const CartProvider = ({ children }) => {
     cart.map((c_item) => {
       if (c_item.id == item.id) isExist = true;
     });
-    if (!isExist) {setCart([...cart, item])};
+    if (!isExist) {
+      setCart([...cart, item]);
+    }
   };
+
+  const removeCart = (id) => {
+    const removedCart = cart.filter((item) => item.id !== id);
+    setCart(removedCart);
+  };
+  
   return (
-    <CartContext.Provider value={{ cart, addCart }}>
+    <CartContext.Provider value={{ cart, addCart,removeCart }}>
       {children}
     </CartContext.Provider>
   );

@@ -11,7 +11,7 @@ const BookProvider = ({ children }) => {
     console.log(id,is_favorite);
     books.map((book) => {
       if (book.id == id) {
-        book.is_favorite = true;
+        book.is_favorite = is_favorite;
       }
     });
     console.log(books);

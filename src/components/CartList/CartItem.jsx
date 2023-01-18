@@ -1,7 +1,20 @@
-import React from "react";
+import React, { useContext } from "react";
+import { CartContext } from "../../context/CartProvider";
+import { BookContext } from "../../context/BookProvider";
 
 const CartItem = ({ item }) => {
   console.log(item);
+
+  const { removeCart } = useContext(CartContext);
+  const { Favorite } = useContext(BookContext);
+
+  const OnRemoveHandler = () => {
+    removeCart(item.id);
+  };
+  const OnMoveFavoriteHandler = () => {
+    removeCart(item.id);
+    Favorite(item.id, true);
+  };
   return (
     <>
       <div className="book_img">
@@ -20,8 +33,13 @@ const CartItem = ({ item }) => {
           <p className="text-sm text-slate-500 ">{item.published}</p>
         </div>
         <div className="book_action flex flex-col gap-1.5 ">
-          <span className="text-green-500">Remove</span>
-          <span className="text-green-500">Move to Favorite</span>
+          <span
+            className="text-green-500 cursor-pointer"
+            onClick={OnRemoveHandler}
+          >
+            Remove
+          </span>
+          <span className="text-green-500 cursor-pointer" onClick={OnMoveFavoriteHandler}>Move to Favorite</span>
         </div>
         <div className="book_price font-extrabold ">${item.price}</div>
       </div>

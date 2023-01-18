@@ -10,7 +10,7 @@ export const data = [
     image: "http://placeimg.com/480/640/any",
     published: "1988-03-10",
     publisher: "Animi Laboriosam",
-    is_favorite: true,
+    is_favorite: false,
     price: 100,
   },
 

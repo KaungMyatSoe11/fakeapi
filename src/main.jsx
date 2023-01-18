@@ -4,10 +4,13 @@ import App from "./App";
 import "./index.css";
 import BookProvider from "./context/BookProvider";
 import CartProvider from "./context/CartProvider";
+import AuthProvider from "./context/AuthProvider";
 ReactDOM.createRoot(document.getElementById("root")).render(
   <BookProvider>
     <CartProvider>
-      <App />
+      <AuthProvider>
+        <App />
+      </AuthProvider>
     </CartProvider>
   </BookProvider>
 );
