@@ -4,6 +4,7 @@ export const AuthContext = createContext();
 
 const AuthProvider = ({ children }) => {
   const [isAuth, setIsAuth] = useState(false);
+  const [isChecked, setIsChecked] = useState(false)
   const [errorMsg, setErrorMsg] = useState("");
 
   const checkLogin = (userName, password) => {
@@ -16,7 +17,10 @@ const AuthProvider = ({ children }) => {
   };
 
   const login = (userName, password) => {
+    console.log(userName,password);
     if (checkLogin(userName, password)) {
+      const k = { userName, password };
+      localStorage.setItem("au", JSON.stringify(k));
       setIsAuth(true);
     } else {
       setIsAuth(false);
@@ -24,7 +28,7 @@ const AuthProvider = ({ children }) => {
   };
 
   return (
-    <AuthContext.Provider value={{ isAuth, login, errorMsg }}>
+    <AuthContext.Provider value={{ isAuth, login,isChecked,setIsChecked, errorMsg, setErrorMsg }}>
       {children}
     </AuthContext.Provider>
   );

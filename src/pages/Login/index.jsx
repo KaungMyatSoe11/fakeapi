@@ -5,7 +5,7 @@ import { AuthContext } from "../../context/AuthProvider";
 const Login = () => {
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
-  const { isAuth, login, errorMsg } = useContext(AuthContext);
+  const { isAuth, login, errorMsg,setErrorMsg } = useContext(AuthContext);
 
   const navigator = useNavigate();
 
@@ -15,6 +15,7 @@ const Login = () => {
     } else {
       if (errorMsg) {
         alert(errorMsg);
+        setErrorMsg("")
       }
     }
   }, [isAuth,errorMsg]);
